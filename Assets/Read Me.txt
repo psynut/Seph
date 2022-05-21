@@ -1,0 +1,10 @@
+Sleepy Time Foundation v1.0
+
+This is intended to be the base of any game.
+It provides a splash screen scene.
+It provides a started menu scene.
+
+SceneLoader:
+Component ready for commands to load scenes that will also allow for time delays before loading the called scene.
+Music Manager:
+Component takes commands to adjust the music player as well as sound effects. Game objects with audio sources that play sound effects will need to have component "HasSoundEffect" added to it.
