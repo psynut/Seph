@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SectionLoader : MonoBehaviour
 {
-    GameObject section;
+    public GameObject section;
 
     // Start is called before the first frame update
     void Start()
     {
-        section = GetComponentInParent<Transform>().gameObject;   
+        Debug.Log(section.name);
     }
 
     // Update is called once per frame
