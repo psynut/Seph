@@ -54,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
         }
         Vector3 direction = new Vector3(m_XAxis,0f,0f);
         rb.AddRelativeForce(direction*speed, ForceMode.Impulse);
-        Debug.Log(direction);
         if(rb.velocity.x != 0f && m_XAxis == 0 || ((rb.velocity.x >0 && m_XAxis < 0) || (rb.velocity.x < 0 && m_XAxis > 0))) {
             rb.velocity = new Vector3(0f,rb.velocity.y,0f);
         }
