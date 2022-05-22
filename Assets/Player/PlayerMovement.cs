@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         //if(jumping == true) {
         //    m_XAxis = xAxis / 4f;
         //}
-        if(Grounded() == false && playerStats.state != PlayerStats.State.heavenly) {
+        if(Grounded() == false && playerStats.GetState() != PlayerStats.State.heavenly) {
             m_XAxis = xAxis / 4f;
         }
         Vector3 direction = new Vector3(m_XAxis,0f,0f);
@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Jump() {
-        if(Grounded() || playerStats.state == PlayerStats.State.heavenly) {
+        if(Grounded() || playerStats.GetState() == PlayerStats.State.heavenly) {
             rb.AddForce(new Vector3(0f,2.0f,0) * jumpStrength,ForceMode.Impulse);
         }
         //if(jumping == false) {
