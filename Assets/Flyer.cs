@@ -14,7 +14,6 @@ public class Flyer : MonoBehaviour
     void Start()
     {
         originalX = transform.position.x;
-        Debug.Log(originalX);
     }
 
     // Update is called once per frame

@@ -16,7 +16,6 @@ public class Bouncer : MonoBehaviour
     private void Awake() {
         rb = GetComponent<Rigidbody>();
         nextPeriod = Time.time + period;
-        Debug.Log(nextPeriod);
     }
     // Start is called before the first frame update
     void Start()
@@ -33,7 +32,6 @@ public class Bouncer : MonoBehaviour
     }
 
     private void Jump() {
-        Debug.Log("Jumped");
         rb.AddForce(new Vector3(bounceX*RandomDirection(),bounceY,0f),ForceMode.Impulse);
         Invoke("Jump",period);
     }

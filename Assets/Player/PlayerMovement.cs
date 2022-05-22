@@ -10,8 +10,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     private float xAxis = 0;
-    private bool jumping = false;
-    private float jumpTime;
+    //private bool jumping = false;
+    //private float jumpTime;
+    private bool grounded;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -30,10 +31,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if(jumping == true && Time.time - jumpTime > .25f) {
-            DetectFloor();
-        }
-        if(rb.velocity.y < 0) {
+        //if(jumping == true && Time.time - jumpTime > .25f) {
+        //    DetectFloor();
+        //}
+        if(Grounded()==false) {
             AccelerateFall();
         }
         Move();
@@ -49,7 +50,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move() {
         float m_XAxis = xAxis;
-        if(jumping == true) {
+        //if(jumping == true) {
+        //    m_XAxis = xAxis / 4f;
+        //}
+        if(Grounded() == false) {
             m_XAxis = xAxis / 4f;
         }
         Vector3 direction = new Vector3(m_XAxis,0f,0f);
@@ -60,22 +64,36 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Jump() {
-        if(jumping == false) {
-            rb.AddForce(new Vector3(0f,2.0f,0) * jumpStrength, ForceMode.Impulse);
-            jumping = true;
-            jumpTime = Time.time;
+        if(Grounded()) {
+            rb.AddForce(new Vector3(0f,2.0f,0) * jumpStrength,ForceMode.Impulse);
         }
+        //if(jumping == false) {
+        //    rb.AddForce(new Vector3(0f,2.0f,0) * jumpStrength, ForceMode.Impulse);
+        //    jumping = true;
+        //    jumpTime = Time.time;
+        //}
     }
 
     //Could either at layerMask or if hit.collider.GetComponent<floor>() if needing more specific 
-    private void DetectFloor() {
-        Debug.Log("Running DetectFloor()");
+    //private void DetectFloor() {
+    //    Debug.Log("Running DetectFloor()");
+    //    RaycastHit hit;
+    //    if(Physics.Raycast(transform.position,Vector3.down,out hit,6f)){
+    //        Debug.Log(hit.collider.name);
+    //        Debug.Log(hit.distance);
+    //        jumping = false;
+    //    };
+    //}
+
+    private bool Grounded() {
+        bool m_bool = false;
         RaycastHit hit;
-        if(Physics.Raycast(transform.position,Vector3.down,out hit,6f)){
-            Debug.Log(hit.collider.name);
-            Debug.Log(hit.distance);
-            jumping = false;
-        };
+        if(Physics.Raycast(transform.position,Vector3.down,out hit,6f)) {
+            if(hit.collider.gameObject.tag == "Floor") {
+                m_bool = true;            
+            }
+        }
+        return m_bool;
     }
 
     private void AccelerateFall() {
