@@ -8,7 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public float jumpStrength = 5f;
     public float gravityAcceleration = 5f;
 
+    public Transform sephTransform;
+
     private Rigidbody rb;
+    private PlayerStats playerStats;
+
     private float xAxis = 0;
     //private bool jumping = false;
     //private float jumpTime;
@@ -16,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     // Start is called before the first frame update
@@ -34,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         //if(jumping == true && Time.time - jumpTime > .25f) {
         //    DetectFloor();
         //}
-        if(Grounded()==false) {
+        if(Grounded() == false) {
             AccelerateFall();
         }
         Move();
@@ -53,18 +58,29 @@ public class PlayerMovement : MonoBehaviour
         //if(jumping == true) {
         //    m_XAxis = xAxis / 4f;
         //}
-        if(Grounded() == false) {
+        if(Grounded() == false && playerStats.state != PlayerStats.State.heavenly) {
             m_XAxis = xAxis / 4f;
         }
         Vector3 direction = new Vector3(m_XAxis,0f,0f);
         rb.AddRelativeForce(direction*speed, ForceMode.Impulse);
+
+        //Comes to quicker stop if changing directions or stopping.
         if(rb.velocity.x != 0f && m_XAxis == 0 || ((rb.velocity.x >0 && m_XAxis < 0) || (rb.velocity.x < 0 && m_XAxis > 0))) {
             rb.velocity = new Vector3(0f,rb.velocity.y,0f);
+        }
+
+        Debug.Log(sephTransform.eulerAngles.y);
+        //Face proper direction of movement
+        if(rb.velocity.x > 0 && sephTransform.eulerAngles.y == 180) {
+            sephTransform.eulerAngles = new Vector3(0f,0f,0f);
+        }
+        if(rb.velocity.x < 0 && sephTransform.eulerAngles.y == 0) {
+            sephTransform.eulerAngles = new Vector3(0f,180f,0f);
         }
     }
 
     public void Jump() {
-        if(Grounded()) {
+        if(Grounded() || playerStats.state == PlayerStats.State.heavenly) {
             rb.AddForce(new Vector3(0f,2.0f,0) * jumpStrength,ForceMode.Impulse);
         }
         //if(jumping == false) {
@@ -88,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
     private bool Grounded() {
         bool m_bool = false;
         RaycastHit hit;
-        if(Physics.Raycast(transform.position,Vector3.down,out hit,6f)) {
+        if(Physics.Raycast(transform.position,Vector3.down,out hit,10.5f)) {
             if(hit.collider.gameObject.tag == "Floor") {
                 m_bool = true;            
             }

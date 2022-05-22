@@ -31,9 +31,7 @@ public class Runner : MonoBehaviour
         bool noDropAhead = Physics.Raycast(transform.position,new Vector3(1f * direction,-1.5f,0f),out noDropHit,12f);
         RaycastHit floorAheadHit;
         bool floorAhead = Physics.Raycast(transform.position + new Vector3(0f, -3f,0f),Vector3.left*-direction,out floorAheadHit,6f);
-        Debug.Log(Vector3.forward);
         if(floorAhead == true) {
-            Debug.Log(floorAheadHit.collider.name);
             if(floorAheadHit.collider.gameObject.tag == "Floor") {
                 ChangeDirection();
             }
@@ -51,7 +49,6 @@ public class Runner : MonoBehaviour
     }
 
     private void ChangeDirection() {
-        Debug.Log("Changing Direction");
         if(direction > 0) {
             direction = -1f;
             transform.eulerAngles = new Vector3(0f,0f,0f);
@@ -59,6 +56,5 @@ public class Runner : MonoBehaviour
             direction = 1f;
             transform.eulerAngles = new Vector3(0f,180f,0f);
         }
-        Debug.Log(direction);
     }
 }
