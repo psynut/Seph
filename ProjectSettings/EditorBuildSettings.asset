@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Scenes/SleepyTime.unity
     guid: 0a9cea939e5979244ad43fbe96c918e1
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Scenes/Menu.unity
     guid: 2a7c3d6225f16d041a064b89da946e7b
   - enabled: 1

@@ -10,12 +10,18 @@ public class SceneLoader : MonoBehaviour
     public Command sceneCommand;
     public float delayTime = 5;
 
+    private Canvas quitCanvas;
+
     private void Awake() {
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        if(GetComponent<Canvas>()) {
+            quitCanvas = GetComponent<Canvas>();
+            quitCanvas.enabled = false;
+        }
         if(sceneCommand == SceneLoader.Command.LoadNextOnDelay) {
             Invoke("LoadNextScene",delayTime);
         }
@@ -42,5 +48,18 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(int sceneBuildIndex) {
         SceneManager.LoadScene(sceneBuildIndex);
+    }
+
+    public void QuitMenu() {
+        quitCanvas.enabled = true;
+    }
+
+    public void CloseQuitMenu() {
+        quitCanvas.enabled = false;
+    }
+
+    public void CloseApplication() {
+        Application.Quit();
+        Debug.LogWarning("Application Quit");
     }
 }
