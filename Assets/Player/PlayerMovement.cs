@@ -10,8 +10,10 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform sephTransform;
 
+    private Animator animator;
     private Rigidbody rb;
     private PlayerStats playerStats;
+    private Blade blade;
 
     private float xAxis = 0;
     //private bool jumping = false;
@@ -19,8 +21,10 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded;
 
     private void Awake() {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         playerStats = GetComponent<PlayerStats>();
+        blade = GetComponentInChildren<Blade>();
     }
 
     // Start is called before the first frame update
@@ -114,6 +118,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void AccelerateFall() {
         rb.AddForce(new Vector3(0f,-gravityAcceleration,0f),ForceMode.Acceleration);
+    }
+
+    public void FireButton() {
+        //If Player isn't HellBound     SwingSword
+        if((int)playerStats.GetState() != 0) {
+            SwingSword();
+        } else {
+            //If Player is in Hell          UseFireball
+            UseFireBall();
+        } 
+    }
+
+    private void SwingSword() {
+        animator.SetTrigger("SwingSword");
+        blade.beingSwung = true;
+        Debug.Log("Sword Swinging" + Time.time);
+    }
+
+    public void SwordSwang() {
+        blade.beingSwung = false;
+        Debug.Log("Sword Swung" + Time.time);
+    }
+
+    private void UseFireBall() {
+        //TODO Fireball shoot;
     }
 
 }
