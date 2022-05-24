@@ -247,8 +247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: 'The End...
 
-    For Now..'
-  speed: 2
+    ...For Now...?'
+  speed: 0.5
 --- !u!114 &80705335
 MonoBehaviour:
   m_ObjectHideFlags: 0
