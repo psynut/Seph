@@ -37,7 +37,6 @@ public class TheEndText : MonoBehaviour
             sb.Append(message[stringLength - placeHolder]);
             placeHolder--;
             m_text.text = sb.ToString();
-            Debug.Log(sb.ToString());
             Invoke("NextLetter",speed);
         }
     }

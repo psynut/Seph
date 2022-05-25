@@ -59,7 +59,7 @@ public class SceneLoader : MonoBehaviour
     }
 
     public void CloseApplication() {
-        Application.Quit();
         Debug.LogWarning("Application Quit");
+        Application.Quit();
     }
 }
