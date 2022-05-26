@@ -73,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(0f,rb.velocity.y,0f);
         }
 
-        Debug.Log(sephTransform.eulerAngles.y);
         //Face proper direction of movement
         if(rb.velocity.x > 0 && sephTransform.eulerAngles.y == 180) {
             sephTransform.eulerAngles = new Vector3(0f,0f,0f);

@@ -17,7 +17,6 @@ public class Ballistic : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
-        Debug.Log(transform.position);
         Destroy(gameObject);
     }
 }

@@ -13,8 +13,6 @@ public class Portal : MonoBehaviour
     void Start()
     {
         destination = GetComponentInChildren<Destination>().transform;
-        Debug.Log(destination.position);
-        Debug.Log(destination.name);
     }
 
     // Update is called once per frame
@@ -26,7 +24,7 @@ public class Portal : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.GetComponent<PlayerStats>() == true) {
             other.GetComponent<PlayerStats>().SetState(destinationRealm);
-            other.attachedRigidbody.transform.position = destination.transform.position;
+            other.GetComponent<Rigidbody>().transform.position = destination.transform.position;
         }
     }
 }
