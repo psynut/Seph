@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ballistic : MonoBehaviour
 {
+
+    public int hitStrength = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,9 @@ public class Ballistic : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.GetComponent<PlayerStats>()) {
+            collision.gameObject.GetComponent<PlayerStats>().TakeHit(hitStrength);
+        }
         Destroy(gameObject);
     }
 }

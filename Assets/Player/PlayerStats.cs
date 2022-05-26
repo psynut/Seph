@@ -8,10 +8,13 @@ public class PlayerStats : MonoBehaviour
     public static int score;
 
     public int karma;
+    public int health;
     public GameObject wings;
     public GameObject horns;
     public GameObject sword;
     public GameObject fireball;
+
+    private int originalHealth;
 
     public enum State { hellBound, earthBound, heavenly };
     private State state = State.earthBound;
@@ -19,7 +22,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        originalHealth = health;
     }
 
     // Update is called once per frame
@@ -50,5 +53,24 @@ public class PlayerStats : MonoBehaviour
 
     public State GetState() {
         return state;
+    }
+
+    public void TakeHit(int hitStrength) {
+        health -= hitStrength;
+        AssessHealth();
+    }
+
+    public void AssessHealth() {
+        if(health <= 0) {
+            GameObject startingPoint = GameObject.FindWithTag("StartingPoints");
+            Transform[] startingPoints = startingPoint.GetComponentsInChildren<Transform>();
+            int m_setStateInt = ((int)state) - 1;
+            if(m_setStateInt <0) {
+                m_setStateInt = 0;
+            }
+            SetState((State)m_setStateInt);
+            GetComponent<Rigidbody>().transform.position = startingPoints[m_setStateInt + 1].position;
+            health = originalHealth;
+        }
     }
 }
