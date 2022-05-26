@@ -6,9 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
     public float jumpStrength = 5f;
+    public float fireballForce = 50f;
     public float gravityAcceleration = 5f;
 
     public Transform sephTransform;
+    public GameObject fireballPrefab;
 
     private Animator animator;
     private Rigidbody rb;
@@ -141,7 +143,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void UseFireBall() {
-        //TODO Fireball shoot;
+        int directionMultiplier;
+        if(sephTransform.eulerAngles.y == 0) {
+            directionMultiplier = 1;
+        } else {
+            directionMultiplier = -1;
+        }
+        GameObject newFireball = Instantiate(fireballPrefab,transform.position + new Vector3(0f,directionMultiplier,0f) * 3,Quaternion.identity);
+        newFireball.transform.eulerAngles = new Vector3(0f,((directionMultiplier +2)/1)*180f,0f);
+        newFireball.GetComponent<Rigidbody>().AddForce(new Vector3(directionMultiplier*fireballForce,0f,0f),ForceMode.Impulse);
     }
 
 }
