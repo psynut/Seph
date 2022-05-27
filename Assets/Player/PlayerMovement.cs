@@ -134,12 +134,10 @@ public class PlayerMovement : MonoBehaviour
     private void SwingSword() {
         animator.SetTrigger("SwingSword");
         blade.beingSwung = true;
-        Debug.Log("Sword Swinging" + Time.time);
     }
 
     public void SwordSwang() {
         blade.beingSwung = false;
-        Debug.Log("Sword Swung" + Time.time);
     }
 
     private void UseFireBall() {
@@ -149,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
         } else {
             directionMultiplier = -1;
         }
-        GameObject newFireball = Instantiate(fireballPrefab,transform.position + new Vector3(0f,directionMultiplier,0f) * 3,Quaternion.identity);
+        GameObject newFireball = Instantiate(fireballPrefab,transform.position + new Vector3(1f*directionMultiplier, 1f,0f) * 3,Quaternion.identity);
         newFireball.transform.eulerAngles = new Vector3(0f,((directionMultiplier +2)/1)*180f,0f);
         newFireball.GetComponent<Rigidbody>().AddForce(new Vector3(directionMultiplier*fireballForce,0f,0f),ForceMode.Impulse);
     }

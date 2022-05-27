@@ -253,6 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186784213326014443}
   - component: {fileID: 4643652943332603013}
+  - component: {fileID: 8208833934578592384}
   m_Layer: 0
   m_Name: Flyer
   m_TagString: Untagged
@@ -294,6 +295,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   distance: 60
+--- !u!114 &8208833934578592384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526189896182988113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bf6d49222cb0443927a83c5dd5805e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP: 30
 --- !u!1 &6683099755330251913
 GameObject:
   m_ObjectHideFlags: 0

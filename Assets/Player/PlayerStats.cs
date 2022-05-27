@@ -14,7 +14,10 @@ public class PlayerStats : MonoBehaviour
     public GameObject sword;
     public GameObject fireball;
 
+    public AudioClip hitSound, hellTransition, earthTransition, heavenTransition;
+
     private int originalHealth;
+    private AudioSource audioSource;
 
     public enum State { hellBound, earthBound, heavenly };
     private State state = State.earthBound;
@@ -22,6 +25,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         originalHealth = health;
     }
 
@@ -32,22 +36,43 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void SetState(State m_State) {
+        MusicPlayer m_musicPlayer = GameObject.FindGameObjectWithTag("Audio").GetComponent<MusicPlayer>();
+        AudioSource m_audioSource = m_musicPlayer.GetComponent<AudioSource>();
         state = m_State;
-        if(m_State != State.heavenly) {
-            wings.SetActive(false);
-        } else {
-            wings.SetActive(true);
-        }
-        if(m_State != State.hellBound) {
-            Debug.Log("If statement sword=true, fireball=false, horns=false");
-            sword.SetActive(true);
-            fireball.SetActive(false);
-            horns.SetActive(false);
-        } else {
-            Debug.Log("If statement sword=false, fireball=true, horns=true");
-            sword.SetActive(false);
-            fireball.SetActive(true);
-            horns.SetActive(true);
+        switch((int)m_State) {
+            case 0: //HellBound
+                wings.SetActive(false);
+                sword.SetActive(false);
+                fireball.SetActive(true);
+                horns.SetActive(true);
+                PlayAudioClip(hellTransition);
+                m_audioSource.Stop();
+                m_audioSource.clip = m_musicPlayer.audioClips[2];
+                m_audioSource.Play();
+                break;
+            case 1: //EarthBound
+                wings.SetActive(false);
+                sword.SetActive(true);
+                fireball.SetActive(false);
+                horns.SetActive(false);
+                PlayAudioClip(earthTransition);
+                m_audioSource.Stop();
+                m_audioSource.clip = m_musicPlayer.audioClips[0];
+                m_audioSource.Play();
+                break;
+            case 2: //HeavenBound
+                wings.SetActive(true);
+                sword.SetActive(true);
+                fireball.SetActive(false);
+                horns.SetActive(false);
+                PlayAudioClip(heavenTransition);
+                m_audioSource.Stop();
+                m_audioSource.clip = m_musicPlayer.audioClips[1];
+                m_audioSource.Play();
+                break;
+            default:
+                Debug.LogWarning("Improper Integer in PlayerStats SetState() - Check State Enum");
+                break;
         }
     }
 
@@ -72,5 +97,11 @@ public class PlayerStats : MonoBehaviour
             GetComponent<Rigidbody>().transform.position = startingPoints[m_setStateInt + 1].position;
             health = originalHealth;
         }
+    }
+
+    private void PlayAudioClip(AudioClip m_audioClip) {
+        audioSource.loop = false;
+        audioSource.clip = m_audioClip;
+        audioSource.Play();
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - StartingPoints
+  - Audio
   layers:
   - Default
   - TransparentFX

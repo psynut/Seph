@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Blade : MonoBehaviour
 {
+    public int swordStrength = 50;
+
     private PlayerStats playerStats;
     public bool beingSwung = false;
 
@@ -11,7 +13,9 @@ public class Blade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(!GetComponent<AudioSource>().clip) {
+            Debug.LogWarning("No clip for swordstrike added to " + this.name);
+        }
     }
 
     // Update is called once per frame
@@ -22,7 +26,7 @@ public class Blade : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.GetComponent<Enemy>() == true && beingSwung==true){
-            
+            other.GetComponent<Enemy>().TakeHit(swordStrength);
         }
     }
 }

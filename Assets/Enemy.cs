@@ -17,4 +17,10 @@ public class Enemy : MonoBehaviour
     private void Vanquish() {
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.GetComponent<PlayerStats>()) {
+            collision.gameObject.GetComponent<PlayerStats>().TakeHit(hP / 2);
+        }
+    }
 }
