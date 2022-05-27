@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         bool m_bool = false;
         RaycastHit hit;
         if(Physics.Raycast(transform.position,Vector3.down,out hit,10.5f)) {
-            if(hit.collider.gameObject.tag == "Floor") {
+            if(hit.collider.gameObject.tag == "Floor" || hit.collider.GetComponent<Enemy>()) {
                 m_bool = true;            
             }
         }
