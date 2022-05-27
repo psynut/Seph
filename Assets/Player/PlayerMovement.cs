@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         //    m_XAxis = xAxis / 4f;
         //}
         if(Grounded() == false && playerStats.GetState() != PlayerStats.State.heavenly) {
-            m_XAxis = xAxis / 4f;
+            m_XAxis = xAxis / 3f;
         }
         Vector3 direction = new Vector3(m_XAxis,0f,0f);
         rb.AddRelativeForce(direction*speed, ForceMode.Impulse);
