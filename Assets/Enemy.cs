@@ -7,6 +7,12 @@ public class Enemy : MonoBehaviour
 
     public int hP;
 
+    private int originalHP;
+
+    private void Start() {
+        originalHP = hP;
+    }
+
     public void TakeHit(int damage) {
         hP -= damage;
         if(hP <= 0) {
@@ -15,6 +21,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void Vanquish() {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<UI>().AddToScoreint(originalHP);
         Destroy(gameObject);
     }
 

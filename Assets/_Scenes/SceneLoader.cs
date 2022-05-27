@@ -50,11 +50,27 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(sceneBuildIndex);
     }
 
+    public void LoadNewGame(int sceneBuildIndex) {
+        UI.score = 0;
+        LoadScene(sceneBuildIndex);
+    }
+
     public void QuitMenu() {
         quitCanvas.enabled = true;
     }
 
+
+    public void Pause() {
+        quitCanvas.enabled = true;
+        Time.timeScale = 0;
+    }
     public void CloseQuitMenu() {
+        Time.timeScale = 1;
+        quitCanvas.enabled = false;
+    }
+
+    public void Unpause() {
+        
         quitCanvas.enabled = false;
     }
 

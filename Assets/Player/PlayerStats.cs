@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-
-    public static int score;
-
     public int karma;
     public int health;
     public int Health{
