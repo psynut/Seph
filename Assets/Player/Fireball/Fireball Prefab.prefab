@@ -4842,6 +4842,7 @@ GameObject:
   - component: {fileID: 6454548444000546278}
   - component: {fileID: 2865320817274987046}
   - component: {fileID: 7428647297694585229}
+  - component: {fileID: 3911647676773895777}
   m_Layer: 0
   m_Name: Fireball Prefab
   m_TagString: Untagged
@@ -4893,6 +4894,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d610b8a954c73fb4e875def2e467a16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireballStrength: 60
+--- !u!135 &3911647676773895777
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454548444000546267}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6454548444537479134
 PrefabInstance:
   m_ObjectHideFlags: 0

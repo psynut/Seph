@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7994461146167469490}
   - component: {fileID: 7994461146167469501}
   - component: {fileID: 6104859632135847113}
+  - component: {fileID: 1136949361262923083}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
@@ -62,6 +63,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hP: 40
+--- !u!65 &1136949361262923083
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7994461146167469491}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.98, y: 7.71, z: 3.87}
+  m_Center: {x: 0.86, y: 1.7, z: -0.44}
 --- !u!1001 &7994461146323220984
 PrefabInstance:
   m_ObjectHideFlags: 0

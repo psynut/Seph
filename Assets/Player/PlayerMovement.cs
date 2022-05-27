@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public float jumpStrength = 5f;
     public float fireballForce = 50f;
+    public float fireballPeriod = 3f;
     public float gravityAcceleration = 5f;
 
     public Transform sephTransform;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     //private bool jumping = false;
     //private float jumpTime;
     private bool grounded;
+    private float nextFireball = 0f;
 
     private void Awake() {
         animator = GetComponent<Animator>();
@@ -141,15 +143,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void UseFireBall() {
-        int directionMultiplier;
-        if(sephTransform.eulerAngles.y == 0) {
-            directionMultiplier = 1;
-        } else {
-            directionMultiplier = -1;
+        if(Time.time > nextFireball) {
+            int directionMultiplier;
+            if(sephTransform.eulerAngles.y == 0) {
+                directionMultiplier = 1;
+            } else {
+                directionMultiplier = -1;
+            }
+            GameObject newFireball = Instantiate(fireballPrefab,transform.position + new Vector3(1f * directionMultiplier,1f,0f) * 3,Quaternion.identity);
+            newFireball.transform.eulerAngles = new Vector3(0f,((directionMultiplier + 2) / 1) * 180f,0f);
+            newFireball.GetComponent<Rigidbody>().AddForce(new Vector3(directionMultiplier * fireballForce,0f,0f),ForceMode.Impulse);
+            nextFireball = Time.time + fireballPeriod;
         }
-        GameObject newFireball = Instantiate(fireballPrefab,transform.position + new Vector3(1f*directionMultiplier, 1f,0f) * 3,Quaternion.identity);
-        newFireball.transform.eulerAngles = new Vector3(0f,((directionMultiplier +2)/1)*180f,0f);
-        newFireball.GetComponent<Rigidbody>().AddForce(new Vector3(directionMultiplier*fireballForce,0f,0f),ForceMode.Impulse);
     }
 
 }
