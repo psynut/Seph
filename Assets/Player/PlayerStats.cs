@@ -9,12 +9,23 @@ public class PlayerStats : MonoBehaviour
 
     public int karma;
     public int health;
+    public int Health{
+        get {
+            return health;
+        }
+        set {
+            health = value;
+            uI.UpdateHealth(health);
+        }
+    }
     public GameObject wings;
     public GameObject horns;
     public GameObject sword;
     public GameObject fireball;
 
     public AudioClip hitSound, hellTransition, earthTransition, heavenTransition;
+
+    public UI uI;
 
     private int originalHealth;
     private AudioSource audioSource;
@@ -27,6 +38,8 @@ public class PlayerStats : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         originalHealth = health;
+        uI.GetOriginalHealth(health);
+
     }
 
     // Update is called once per frame
@@ -81,12 +94,12 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void TakeHit(int hitStrength) {
-        health -= hitStrength;
+        Health -= hitStrength;
         AssessHealth();
     }
 
     public void AssessHealth() {
-        if(health <= 0) {
+        if(Health <= 0) {
             GameObject startingPoint = GameObject.FindWithTag("StartingPoints");
             Transform[] startingPoints = startingPoint.GetComponentsInChildren<Transform>();
             int m_setStateInt = ((int)state) - 1;
@@ -95,7 +108,7 @@ public class PlayerStats : MonoBehaviour
             }
             SetState((State)m_setStateInt);
             GetComponent<Rigidbody>().transform.position = startingPoints[m_setStateInt + 1].position;
-            health = originalHealth;
+            Health = originalHealth;
         }
     }
 
