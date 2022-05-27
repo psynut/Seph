@@ -156,8 +156,8 @@ public class PlayerMovement : MonoBehaviour
             } else {
                 directionMultiplier = -1;
             }
-            GameObject newFireball = Instantiate(fireballPrefab,transform.position + new Vector3(1f * directionMultiplier,1f,0f) * 3,Quaternion.identity);
-            newFireball.transform.eulerAngles = new Vector3(0f,((directionMultiplier + 2) / 1) * 180f,0f);
+            GameObject newFireball = Instantiate(fireballPrefab,transform.position + new Vector3(2f * directionMultiplier,1f,0f) * 3,Quaternion.identity);
+            newFireball.transform.eulerAngles = new Vector3(0f,((directionMultiplier + 1) / 2) * 180f,0f);
             newFireball.GetComponent<Rigidbody>().AddForce(new Vector3(directionMultiplier * fireballForce,0f,0f),ForceMode.Impulse);
             nextFireball = Time.time + fireballPeriod;
         }

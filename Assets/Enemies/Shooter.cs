@@ -40,7 +40,7 @@ public class Shooter : MonoBehaviour
 
     private void ShootBallistic() {
         int m_playerDirection = ((int)playerDirection * 2) - 1; //If player is to the left -1 / If player is to the right +1
-        GameObject m_ballistic = Instantiate(ballistic,transform.position + new Vector3(m_playerDirection*5.3f,4f,0f),Quaternion.identity);
+        GameObject m_ballistic = Instantiate(ballistic,transform.position + new Vector3(m_playerDirection*8f,4f,0f),Quaternion.identity);
         m_ballistic.transform.parent = transform;
         m_ballistic.transform.eulerAngles = new Vector3(0f,0f,-m_playerDirection*90f);
         Rigidbody ballisticRB = m_ballistic.GetComponent<Rigidbody>();

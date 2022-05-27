@@ -27,8 +27,6 @@ public class Blade : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("OnTriggerEnter at sword");
-        Debug.Log(other.name);
         if(other.GetComponent<Enemy>() == true && beingSwung == true) {
             other.GetComponent<Enemy>().TakeHit(swordStrength);
             audioSource.Play();
