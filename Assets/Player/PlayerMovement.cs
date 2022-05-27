@@ -116,6 +116,12 @@ public class PlayerMovement : MonoBehaviour
                 m_bool = true;            
             }
         }
+        //Trying to contend with Player sometimes getting stuck on corners of the floor.
+        if(Physics.Raycast(transform.position + new Vector3(.5f,0f,0f),Vector3.down, out hit,10.5f)) {
+            if(hit.collider.gameObject.tag == "Floor" && m_bool == false) {
+                m_bool = true;
+            }
+        }
         return m_bool;
     }
 
