@@ -43,7 +43,7 @@ public class SceneLoader : MonoBehaviour
     }
 
     public void LoadScene(string sceneName) {
-        SceneManager.LoadScene("sceneName");
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
     public void LoadScene(int sceneBuildIndex) {

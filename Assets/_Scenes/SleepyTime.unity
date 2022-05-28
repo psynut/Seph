@@ -229,16 +229,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 345368422}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: eea35aade6bd2b747ab80c0ccaf018d8, type: 3}
+  m_PointAction: {fileID: -6434676201574565499, guid: eea35aade6bd2b747ab80c0ccaf018d8, type: 3}
+  m_MoveAction: {fileID: -2676645390656557895, guid: eea35aade6bd2b747ab80c0ccaf018d8, type: 3}
+  m_SubmitAction: {fileID: 2064916234097673511, guid: eea35aade6bd2b747ab80c0ccaf018d8, type: 3}
+  m_CancelAction: {fileID: -1967631576421560919, guid: eea35aade6bd2b747ab80c0ccaf018d8, type: 3}
+  m_LeftClickAction: {fileID: -26459476426735653, guid: eea35aade6bd2b747ab80c0ccaf018d8, type: 3}
+  m_MiddleClickAction: {fileID: -2851667053126886911, guid: eea35aade6bd2b747ab80c0ccaf018d8, type: 3}
+  m_RightClickAction: {fileID: 3837173908680883260, guid: eea35aade6bd2b747ab80c0ccaf018d8, type: 3}
+  m_ScrollWheelAction: {fileID: -7421964990460163020, guid: eea35aade6bd2b747ab80c0ccaf018d8, type: 3}
+  m_TrackedDevicePositionAction: {fileID: -7798156575724941031, guid: eea35aade6bd2b747ab80c0ccaf018d8, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 502637380343345759, guid: eea35aade6bd2b747ab80c0ccaf018d8, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &345368424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,8 +395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0082db215823ec945bf175bea6e9f8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneCommand: 1
-  delayTime: 0
+  sceneCommand: 0
+  delayTime: 7
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
