@@ -84,6 +84,9 @@ public class PlayerMovement : MonoBehaviour
         if(rb.velocity.x < 0 && sephTransform.eulerAngles.y == 0) {
             sephTransform.eulerAngles = new Vector3(0f,180f,0f);
         }
+
+        //Message Animator The Movement Information;
+        animator.SetFloat("Speed",Mathf.Abs(m_XAxis));
     }
 
     public void Jump() {
