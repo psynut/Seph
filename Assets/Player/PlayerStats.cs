@@ -91,6 +91,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void TakeHit(int hitStrength) {
+        PlayAudioClip(hitSound);
         Health -= hitStrength;
         AssessHealth();
     }
