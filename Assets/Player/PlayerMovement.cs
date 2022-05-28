@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
             AccelerateFall();
         }
         Move();
+        Debug.Log(Grounded());
     }
 
     public void ControllerX(InputAction.CallbackContext context) {
@@ -120,7 +121,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         //Trying to contend with Player sometimes getting stuck on corners of the floor.
-        if(Physics.Raycast(transform.position + new Vector3(.5f,0f,0f),Vector3.down, out hit,10.5f)) {
+        if(Physics.Raycast(transform.position + new Vector3(2f,0f,0f),Vector3.down, out hit,10.5f)) {
+            if(hit.collider.gameObject.tag == "Floor" && m_bool == false) {
+                m_bool = true;
+            }
+        }
+        if(Physics.Raycast(transform.position + new Vector3(-2f,0f,0f),Vector3.down,out hit,10.5f)) {
             if(hit.collider.gameObject.tag == "Floor" && m_bool == false) {
                 m_bool = true;
             }
