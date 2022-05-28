@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7994461146167469501}
   - component: {fileID: 6104859632135847113}
   - component: {fileID: 1136949361262923083}
+  - component: {fileID: 5381863414825723474}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   period: 10
   ballisticForce: 50
+  timeAnimationAction: 0.95
   ballistic: {fileID: 820007036250783481, guid: bee1e79cf27c03c428ed63b7db27da2d, type: 3}
   shooter: {fileID: 7600019479270825491}
 --- !u!114 &6104859632135847113
@@ -77,6 +79,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.98, y: 7.71, z: 3.87}
   m_Center: {x: 0.86, y: 1.7, z: -0.44}
+--- !u!95 &5381863414825723474
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7994461146167469491}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5a35b30d7ce58c248a22ac449b60846d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7994461146323220984
 PrefabInstance:
   m_ObjectHideFlags: 0

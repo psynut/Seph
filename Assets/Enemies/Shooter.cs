@@ -7,19 +7,22 @@ public class Shooter : MonoBehaviour
     [Tooltip("Amount of time between shooting ballistic")]
     public float period = 10f;
     public float ballisticForce = 50f;
+    public float timeAnimationAction=2f;
     public GameObject ballistic;
     public Transform shooter;
 
     private Transform player;
     private enum Direction {left, right};
     private Direction playerDirection;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         FacePlayer();
-        ShootBallistic();
+        AnimateBeforeShoot();
     }
 
     // Update is called once per frame
@@ -38,6 +41,11 @@ public class Shooter : MonoBehaviour
         }
     }
 
+    private void AnimateBeforeShoot() {
+        animator.SetTrigger("Fire");
+        Invoke("ShootBallistic",timeAnimationAction);
+    }
+
     private void ShootBallistic() {
         int m_playerDirection = ((int)playerDirection * 2) - 1; //If player is to the left -1 / If player is to the right +1
         GameObject m_ballistic = Instantiate(ballistic,transform.position + new Vector3(m_playerDirection*8f,4f,0f),Quaternion.identity);
@@ -45,6 +53,6 @@ public class Shooter : MonoBehaviour
         m_ballistic.transform.eulerAngles = new Vector3(0f,0f,-m_playerDirection*90f);
         Rigidbody ballisticRB = m_ballistic.GetComponent<Rigidbody>();
         ballisticRB.AddForce(m_playerDirection * ballisticForce,0f,0f,ForceMode.Impulse);
-        Invoke("ShootBallistic",period);
+        Invoke("AnimateBeforeShoot",period);
     }
 }

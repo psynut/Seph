@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 4942817962421623363}
   - component: {fileID: 7062958405416795606}
   - component: {fileID: 2932712617100404190}
+  - component: {fileID: 7300676958622482693}
   m_Layer: 0
   m_Name: Runner
   m_TagString: Untagged
@@ -561,6 +562,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 6.7, z: 2.74}
   m_Center: {x: 0.32, y: 0.95, z: 0}
+--- !u!95 &7300676958622482693
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5213201816213641655}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 429198a914bb93846a81b5ae18697aec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5497067228896657550
 GameObject:
   m_ObjectHideFlags: 0

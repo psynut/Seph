@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 4643652943332603013}
   - component: {fileID: 8208833934578592384}
   - component: {fileID: 9015326749833048822}
+  - component: {fileID: 5668142083449333340}
   m_Layer: 0
   m_Name: Flyer
   m_TagString: Untagged
@@ -294,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46912d8b32043114889efab785983249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   distance: 60
 --- !u!114 &8208833934578592384
 MonoBehaviour:
@@ -323,6 +324,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.39, y: 2.22, z: 5.07}
   m_Center: {x: 0, y: 0.47, z: 0}
+--- !u!95 &5668142083449333340
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526189896182988113}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da6e7c4094746c64e86bece84d844ff8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6683099755330251913
 GameObject:
   m_ObjectHideFlags: 0
