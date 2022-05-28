@@ -7,8 +7,7 @@ public class Enemy : MonoBehaviour
 
     public int hP;
 
-
-    public AudioClip[] vanquishedClips;
+    public GameObject vanquishedSoundMaker;
 
     private int originalHP;
     private AudioSource audioSource;
@@ -26,14 +25,9 @@ public class Enemy : MonoBehaviour
     }
 
     private void Vanquish() {
-        Transform[] childTransforms = GetComponentsInChildren<Transform>();
-        for(int i = childTransforms.Length - 1; i < 0; i--) {
-            Destroy(childTransforms[i]);
-        }
-        GetComponent<Collider>().enabled = false;            
-        PlayAudioClip(vanquishedClips[Random.Range(0,vanquishedClips.Length)]);
+        GameObject m_VanquishSM = Instantiate(vanquishedSoundMaker);
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<UI>().AddToScoreint(originalHP);
-        Destroy(gameObject,3f);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision) {
