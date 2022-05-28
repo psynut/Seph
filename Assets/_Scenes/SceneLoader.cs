@@ -74,6 +74,11 @@ public class SceneLoader : MonoBehaviour
         quitCanvas.enabled = false;
     }
 
+    public void ReturnToMenu() {
+        Time.timeScale = 1;
+        LoadScene(1);
+    }
+
     public void CloseApplication() {
         Debug.LogWarning("Application Quit");
         Application.Quit();
