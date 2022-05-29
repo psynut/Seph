@@ -44,7 +44,7 @@ public class Coin : MonoBehaviour
         } else {
             pSystem.Play();
         }
-        m_collider.enabled = false;
-        meshRenderer.enabled = false;
+        m_collider.enabled = m_bool;
+        meshRenderer.enabled = m_bool;
     }
 }

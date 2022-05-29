@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72cb00cdf2d618e49ad9ee6a3a976cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordStrength: 50
   beingSwung: 0
 --- !u!64 &8948293520757296226
 MeshCollider:
@@ -240,10 +241,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed52156c0f2a3504284be3f89a8f3fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  jumpStrength: 200
-  gravityAcceleration: 45
+  speed: 8
+  jumpStrength: 120
+  fireballForce: 80
+  fireballPeriod: 1
+  gravityAcceleration: 155
   sephTransform: {fileID: 8909246998044690746}
+  fireballPrefab: {fileID: 0}
 --- !u!114 &8948293522463213161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +321,50 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fa7d9529-a8b9-4597-9dfe-983a22c0fca2
     m_ActionName: Player/Fire[/Keyboard/slash,/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ac49f2f6-9320-433d-a277-711c16faca5d
+    m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f0c28bdd-bc80-46a6-a87b-c106c2300887
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cc5e964f-98a9-4369-972f-bb08d35ebfbc
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ac7f1292-fed5-4568-b2e3-0512ad464d1e
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1385da54-94b5-4c01-8aab-f016d1668cb6
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 79595239-e62b-4904-ae34-bb367d949726
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 95cf31e9-b06e-4118-8ab3-375cc4bc9ba7
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7d0207da-670b-445b-905a-65d8cb3e7a9d
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ed93c9d2-82af-49d8-9369-a61ff010850f
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 859d0976-acde-4b92-bbe6-a641d5897543
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b9dfa19e-13e8-48a9-ae6f-9f0819066952
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -330,7 +378,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8948293522463213075}
   serializedVersion: 2
-  m_Mass: 17
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -351,10 +399,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   karma: 0
+  health: 0
   wings: {fileID: 8137952153256272502}
   horns: {fileID: 4487748148673437027}
   sword: {fileID: 919132149155446097, guid: 4d0c78c077d73a245b0558ac1e5ca056, type: 3}
   fireball: {fileID: 346368377728761986}
+  hitSound: {fileID: 0}
+  hellTransition: {fileID: 0}
+  earthTransition: {fileID: 0}
+  heavenTransition: {fileID: 0}
+  uI: {fileID: 0}
 --- !u!95 &8948293522463213164
 Animator:
   serializedVersion: 3
