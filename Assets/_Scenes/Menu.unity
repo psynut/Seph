@@ -2951,7 +2951,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1514202474}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.684334
+  m_Size: 0.72350067
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3256,7 +3256,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '"W" "D" or Arrow - Left/Right
+  m_Text: '"A" "D" or Arrow - Left/Right
 
     SPACE - Jump
 
@@ -4019,8 +4019,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 66c3aa43622e7914aa77e77d211d806d, type: 3}
-  sceneCommand: 0100000000000000
-  startTrack: 00000000
+  - {fileID: 8300000, guid: a3f9198b80f903842b413a515811c2f3, type: 3}
+  sceneCommand: 0100000002000000
+  startTrack: 0000000001000000
   fail: {fileID: 0}
   success: {fileID: 0}
 --- !u!114 &2120200558

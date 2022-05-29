@@ -8,6 +8,7 @@ public class Coin : MonoBehaviour
     private ParticleSystem pSystem;
     private Collider m_collider;
     private MeshRenderer meshRenderer;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class Coin : MonoBehaviour
         pSystem = GetComponentInChildren<ParticleSystem>();
         m_collider = GetComponent<Collider>();
         meshRenderer = GetComponent<MeshRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,14 +28,11 @@ public class Coin : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.GetComponent<PlayerStats>()) {
             other.gameObject.GetComponent<PlayerStats>().Karma++;
+            audioSource.Play();
             StartCoroutine(Appears(false,0f));
             StartCoroutine(Appears(true,60f));
             
         }
-    }
-
-    private void Respawn() {
-        
     }
 
 
