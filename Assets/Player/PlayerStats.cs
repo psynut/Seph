@@ -15,6 +15,16 @@ public class PlayerStats : MonoBehaviour
             uI.UpdateHealth(health);
         }
     }
+
+    public int Karma {
+        get {
+            return karma;
+        }
+        set {
+            karma = value;
+            uI.UpdateKharma(karma);
+        }
+    }
     public GameObject wings;
     public GameObject horns;
     public GameObject sword;
@@ -90,24 +100,32 @@ public class PlayerStats : MonoBehaviour
         return state;
     }
 
+    //To be called by Enemy script or Ballistic script
     public void TakeHit(int hitStrength) {
         PlayAudioClip(hitSound);
         Health -= hitStrength;
         AssessHealth();
     }
 
+    //Is the player dead (out of health yet?) If so, change state
     public void AssessHealth() {
-        if(Health <= 0) {
-            GameObject startingPoint = GameObject.FindWithTag("StartingPoints");
-            Transform[] startingPoints = startingPoint.GetComponentsInChildren<Transform>();
-            int m_setStateInt = ((int)state) - 1;
-            if(m_setStateInt <0) {
-                m_setStateInt = 0;
+            if(Health <= 0) {
+                int m_setStateInt = (int)state;
+                GameObject startingPoint = GameObject.FindWithTag("StartingPoints");
+                Transform[] startingPoints = startingPoint.GetComponentsInChildren<Transform>();
+                if(Karma < 7) {                 //If Karma is less than 7 player goes one step down.
+                    m_setStateInt--;
+                    if(m_setStateInt < 0) {
+                        m_setStateInt = 0;
+                    }
+                } else {                        //If Karma is greater than 7 player goes to heaven.
+                    m_setStateInt = 2;
+                    Karma = 0;
+                }
+                SetState((State)m_setStateInt);
+                GetComponent<Rigidbody>().transform.position = startingPoints[m_setStateInt + 1].position;
+                Health = originalHealth;
             }
-            SetState((State)m_setStateInt);
-            GetComponent<Rigidbody>().transform.position = startingPoints[m_setStateInt + 1].position;
-            Health = originalHealth;
-        }
     }
 
     private void PlayAudioClip(AudioClip m_audioClip) {
