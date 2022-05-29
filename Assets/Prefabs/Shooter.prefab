@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16c8420c15eeea4db0eac1e50cf1e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 10
+  period: 7
   ballisticForce: 50
   timeAnimationAction: 0.95
   ballistic: {fileID: 820007036250783481, guid: bee1e79cf27c03c428ed63b7db27da2d, type: 3}
