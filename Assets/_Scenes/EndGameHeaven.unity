@@ -245,9 +245,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c5173100e3ce7418266f96fee1e797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: 'Onward to save
+  message: 'What relief Cerberis will have when his keeper returns!
 
-    Father and Husband!'
+    Surely there
+    will be celebration when Zeus, returns to Olympus!
+
+    The End...For Now...'
   speed: 0.2
 --- !u!114 &80705335
 MonoBehaviour:
@@ -285,7 +288,9 @@ MonoBehaviour:
   m_Text: 'What relief Cerberis will have when his keeper returns!
 
     Surely there
-    will be celebration when Zeus, returns to Olympus!'
+    will be celebration when Zeus returns to Olympus!
+
+    The End...For Now...'
 --- !u!222 &80705336
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1274,8 +1279,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 66c3aa43622e7914aa77e77d211d806d, type: 3}
-  sceneCommand: 010000000000000000000000000000000000000000000000
-  startTrack: 0000000000000000000000000000000000000000
+  - {fileID: 8300000, guid: e0b8bc1765fa73c42b4ef1fcc15fb023, type: 3}
+  sceneCommand: 010000000000000000000000000000000000000001000000
+  startTrack: 000000000000000000000000000000000000000001000000
   fail: {fileID: 0}
   success: {fileID: 0}
 --- !u!114 &1770069217

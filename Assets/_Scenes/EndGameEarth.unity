@@ -247,7 +247,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: 'Onward to save
 
-    Father and Husband!'
+    Father and Husband!
+
+    The End...For Now...'
   speed: 0.2
 --- !u!114 &80705335
 MonoBehaviour:
@@ -284,7 +286,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Onward to save
 
-    Father and Husband!'
+    Father and Husband!
+
+    The End...For Now...'
 --- !u!222 &80705336
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1273,8 +1277,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 66c3aa43622e7914aa77e77d211d806d, type: 3}
-  sceneCommand: 0100000000000000000000000000000000000000
-  startTrack: 00000000000000000000000000000000
+  - {fileID: 8300000, guid: e0b8bc1765fa73c42b4ef1fcc15fb023, type: 3}
+  sceneCommand: 0100000000000000000000000000000001000000
+  startTrack: 0000000000000000000000000000000001000000
   fail: {fileID: 0}
   success: {fileID: 0}
 --- !u!114 &1770069217
