@@ -46,4 +46,9 @@ public class Coin : MonoBehaviour
         m_collider.enabled = m_bool;
         meshRenderer.enabled = m_bool;
     }
+
+    private void OnEnable() {
+        m_collider.enabled = true;
+        meshRenderer.enabled = true;
+    }
 }
