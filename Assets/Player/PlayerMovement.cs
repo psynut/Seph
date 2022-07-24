@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             m_XAxis = xAxis / 3f;
         }
         Vector3 direction = new Vector3(m_XAxis,0f,0f);
-        rb.AddRelativeForce(direction*speed, ForceMode.Impulse);
+        rb.AddRelativeForce(direction*speed, ForceMode.VelocityChange);
 
         //Comes to quicker stop if changing directions or stopping.
         if(rb.velocity.x != 0f && m_XAxis == 0 || ((rb.velocity.x >0 && m_XAxis < 0) || (rb.velocity.x < 0 && m_XAxis > 0))) {

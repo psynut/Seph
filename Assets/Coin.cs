@@ -11,7 +11,7 @@ public class Coin : MonoBehaviour
     private AudioSource audioSource;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         pSystem = GetComponentInChildren<ParticleSystem>();
         m_collider = GetComponent<Collider>();
