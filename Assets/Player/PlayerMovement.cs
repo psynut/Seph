@@ -67,11 +67,23 @@ public class PlayerMovement : MonoBehaviour
         //if(jumping == true) {
         //    m_XAxis = xAxis / 4f;
         //}
-        if(Grounded() == false && playerStats.GetState() != PlayerStats.State.heavenly) {
-            m_XAxis = xAxis / 3f;
-        }
+        //if(Grounded() == false && playerStats.GetState() != PlayerStats.State.heavenly) {
+        //   m_XAxis = xAxis / 3f;
+        //}
         Vector3 direction = new Vector3(m_XAxis,0f,0f);
-        rb.AddRelativeForce(direction*speed, ForceMode.VelocityChange);
+
+
+        //https://www.youtube.com/watch?v=K1xZ-rycYY8
+        rb.velocity = new Vector3(direction.x * speed,rb.velocity.y,rb.velocity.z);
+
+
+        //original
+        //rb.AddRelativeForce(direction*speed, ForceMode.VelocityChange);
+
+        //glitchy - gets shakey when player stops moving if setting is speed gets close to comfortable value
+        //rb.MovePosition(transform.position+direction * speed * Time.fixedDeltaTime);
+        //https://forum.unity.com/threads/rigidbody-moveposition-not-colliding-properly.509037/
+        // rb.AddForce(direction * speed - new Vector3(rb.velocity.x,0f,0f),ForceMode.VelocityChange);
 
         //Comes to quicker stop if changing directions or stopping.
         if(rb.velocity.x != 0f && m_XAxis == 0 || ((rb.velocity.x >0 && m_XAxis < 0) || (rb.velocity.x < 0 && m_XAxis > 0))) {
