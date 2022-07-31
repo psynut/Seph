@@ -30,7 +30,7 @@ public class UI : MonoBehaviour {
 
     //We're going with 7 kharma points is full
     public void UpdateKharma(int m_kharma) {
-        Mathf.Clamp(m_kharma,0,7);
+        m_kharma = Mathf.Clamp(m_kharma,0,7);
         kharmaForground.localScale = new Vector2((float)m_kharma / 7f,1f);
     }
 
